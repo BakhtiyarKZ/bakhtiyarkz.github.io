@@ -32,7 +32,8 @@ getNFTs = async () => {
                 let metadata = JSON.parse(n.metadata);
                 let content = `
                       <div class="card col-md-3">
-                     <img src="${metadata.animation_url}" class="card-img-top" alt="...">
+                     
+                     <video src="${metadata.animation_url}" autoplay poster="logo.png"></video>
                      <div class="card-body">
                      <h5 class="card-title"> ${metadata.name} </h5>
                      <p class="card-text">${metadata.description}</p>
