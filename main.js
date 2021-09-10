@@ -27,15 +27,15 @@ getNFTs = async () => {
          console.log(nftses);
          let nfts = document.querySelector('#nfts');
          
-         if(nfts.result.lenght > 0){
+         if(nftses.result.lenght > 0){
              nftses.result.forEach( n => {
                 let metadata = JSON.parse(n.metadata);
                 let content = `
                       <div class="card col-md-3">
                      <img src="..." class="card-img-top" alt="...">
                      <div class="card-body">
-                     <h5 class="card-title"> ${ metadata.name } </h5>
-                     <p class="card-text">${ metadata.description }</p>
+                     <h5 class="card-title"> ${metadata.name} </h5>
+                     <p class="card-text">${metadata.description}</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
