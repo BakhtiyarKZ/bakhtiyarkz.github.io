@@ -27,7 +27,7 @@ getNFTs = async () => {
          console.log(nftses);
          let nfts = document.querySelector('#nfts');
          
-         if(nftses.result.lenght > 0){
+         if(nftses.result.length > 0){
              nftses.result.forEach( n => {
                 let metadata = JSON.parse(n.metadata);
                 let content = `
