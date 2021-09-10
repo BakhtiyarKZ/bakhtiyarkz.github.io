@@ -23,12 +23,12 @@ logout = async () => {
 
 
 getNFTs = async () => {
-    let nfts = await Moralis.Web3API.account.getNFTs();
+    let nftses = await Moralis.Web3API.account.getNFTs();
          console.log(nfts);
          let nfts = document.querySelector('#nfts');
          
          if(nfts.result.lenght > 0){
-             nfts.result.forEach( n => {
+             nftses.result.forEach( n => {
                 let metadata = JSON.parse(n.metadata);
                 let content = `
                       <div class="card col-md-3">
