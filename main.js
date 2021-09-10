@@ -40,8 +40,8 @@ getNFTs = async () => {
   </div>
 </div>
                      `
+                      $("#nfts").html(content);
                       
-                      nfts.innerHTML += content;
              }
              
              );
