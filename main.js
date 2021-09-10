@@ -46,7 +46,10 @@ getNFTs = async () => {
          }
 }
 
-
+if(document.querySelector('#btn-nfts') != null)
+{
+    document.querySelector('#btn-nfts').onclick = getNFTs;
+}
 
 if(document.querySelector('#btn-login') != null)
 {
