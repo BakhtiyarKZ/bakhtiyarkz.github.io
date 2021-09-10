@@ -24,6 +24,7 @@ let tableOfNFTs = document.querySelector('#tableOfNFTs');
 
 getNFTs = async () => {
     let nfts = await Moralis.Web3API.account.getNFTs( {chain: 'rinkeby'});
+         console.log(nfts);
          if(nfts.result.lenght > 0){
              nfts.result.forEach( n => {
                 let metadata = JSON.parse(n.metadata);
