@@ -27,7 +27,7 @@ getNFTs = async () => {
          if(nfts.result.lenght > 0){
              nfts.result.forEach( n => {
                 let metadata = JSON.parse(n.metadata);
-                let content = "
+                let content = `
                       <div class="card col-md-3">
                      <img src="..." class="card-img-top" alt="...">
                      <div class="card-body">
@@ -36,7 +36,7 @@ getNFTs = async () => {
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
-                     ";
+                     `
                       
                       tableOfNFTs.innerHTML += content;
              }
