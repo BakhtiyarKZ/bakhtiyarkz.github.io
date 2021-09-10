@@ -20,6 +20,33 @@ logout = async () => {
     window.location.href = "index.html";
 }
 
+let tableOfNFTs = document.querySelector('#tableOfNFTs');
+
+getNFTs = async () => {
+    let nfts = await Moralis.Web3API.account.getNFTs( { chain: 'mainnet' } );
+         if(nfts.result.lenght > 0){
+             nfts.result.forEach( n => {
+                let metadata = JSON.parse(n.metadata);
+                      let content = '
+                      <div class="card col-md-3">
+                     <img src="..." class="card-img-top" alt="...">
+                     <div class="card-body">
+                     <h5 class="card-title"> ${ metadata.name } </h5>
+                     <p class="card-text">${ metadata.description }</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+                      '
+                      
+                      tableOfNFTs.innerHTML += content;
+             }
+             
+             )
+         }
+}
+
+
+
 if(document.querySelector('#btn-login') != null)
 {
     document.querySelector('#btn-login').onclick = login;
