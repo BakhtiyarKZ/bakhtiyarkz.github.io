@@ -24,7 +24,7 @@ logout = async () => {
 
 getNFTs = async () => {
     let nftses = await Moralis.Web3API.account.getNFTs();
-         console.log(nfts);
+         console.log(nftses);
          let nfts = document.querySelector('#nfts');
          
          if(nfts.result.lenght > 0){
