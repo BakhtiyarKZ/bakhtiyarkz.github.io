@@ -29,11 +29,11 @@ getNFTs = async () => {
          
          if(nftses.result.length > 0){
              nftses.result.forEach( n => {
-                let metadata = JSON.parse(n.metadata);
+                let metadata = JSON.parse(n.token_uri);
                 let content = `
                       <div class="card col-md-3">
-        
-                     <video src="${metadata.animation_url ? metadata.animation_url : ''}" autoplay poster="logo.png"></video>
+                     <img src="${metadata.image}" class="card-img-top" alt="...">
+                     
                      
                      <div class="card-body">
                      <h5 class="card-title"> ${metadata.name} </h5>
