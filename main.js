@@ -23,7 +23,7 @@ logout = async () => {
 let tableOfNFTs = document.querySelector('#tableOfNFTs');
 
 getNFTs = async () => {
-    let nfts = await Moralis.Web3API.account.getNFTs(chain: 'mainnet', address: '0xd07dc4262bcdbf85190c01c996b4c06a461d2430');
+    let nfts = await Moralis.Web3API.account.getNFTs( {chain: 'rinkeby'});
          if(nfts.result.lenght > 0){
              nfts.result.forEach( n => {
                 let metadata = JSON.parse(n.metadata);
