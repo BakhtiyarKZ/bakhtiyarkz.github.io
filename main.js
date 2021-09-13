@@ -26,7 +26,7 @@ function fetchNFTMetadata(NFTs) {
    for(let i=0; i<NFTs.length; i++){
       let nft = NFTs[i];
       let id = nft.token_id; 
-      promises.push(fetch(nft.token_uri))
+      promises.push(fetch(nft.token_uri, { mode: 'no-cors'}))
             .then(res => res.json())
             .then(res => JSON.parse(res.result))
             .then(res => { nft.metadata = res} )
