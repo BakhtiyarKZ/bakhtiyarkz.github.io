@@ -33,7 +33,19 @@ function fetchNFTMetadata(NFTs) {
             .then( () => { return nft; } )
                    );
 
-   
+             let content = `
+                      <div class="card col-md-3">
+                     <img src="${nft.metadata.image}" class="card-img-top" alt="...">
+                     
+                     
+                     <div class="card-body">
+                     <h5 class="card-title"> ${nft.metadata.name} </h5>
+                     <p class="card-text">${nft.metadata.description}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+                     `
+                    nfts.innerHTML += content;
    
    }
          return Promise.all(promises);
