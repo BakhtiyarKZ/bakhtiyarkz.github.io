@@ -43,7 +43,7 @@ function renderInventory(NFTs) {
          for(let i=0; i<NFTs.length; i++){
             const nft = NFTs[i];
          let htmlString = `
-                      <div class="card col-md-3">
+                      <div class="card">
                      <img src="${nft.metadata.image}" class="card-img-top" alt="...">
                      
                      
