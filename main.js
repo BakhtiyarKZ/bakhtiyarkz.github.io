@@ -24,7 +24,7 @@ logout = async () => {
 
 getNFTs = async () => {
          
-    const options = {address: "0xeC2F3215698FCf4e9A5a40439C700fbD1D43313E"};     
+    const options = {address: "0xeC2F3215698FCf4e9A5a40439C700fbD1D43313E", chain: "mainnet"};     
     let nftses = await Moralis.Web3API.account.getNFTs(options);
          console.log(nftses);
          let nfts = document.querySelector('#nfts');
