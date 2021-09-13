@@ -33,8 +33,8 @@ getNFTs = async () => {
              nftses.result.forEach( n => {
                 let id = n.token_id;  
                 fetch(id)
-                      .then(res => console.log(res));
-                //let metadata = JSON.parse(n.token_uri);
+                      .then(res => res.json));
+                let metadata = JSON.parse(res);
                 let content = `
                       <div class="card col-md-3">
                      <img src="${res.json().image}" class="card-img-top" alt="...">
@@ -42,7 +42,7 @@ getNFTs = async () => {
                      
                      <div class="card-body">
                      <h5 class="card-title"> ${res.json().name} </h5>
-                     <p class="card-text">${res.json().description}</p>
+                     <p class="card-text">${metadata.description}</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
