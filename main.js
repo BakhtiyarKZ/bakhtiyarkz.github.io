@@ -21,7 +21,7 @@ logout = async () => {
 }
 
 
-function fetchNFTMetadata(NFTs){
+fetchNFTMetadata = async (NFTs) => {
    let promises = [];
    for(let i=0; i<NFTs.length; i++){
       let nft = NFTs[i];
