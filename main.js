@@ -39,7 +39,7 @@ function fetchNFTMetadata(NFTs) {
 }
 
 async function getNFTs() {
-    let NFTs = await Moralis.Web3API.token.getAllTokenIds();
+    let NFTs = await Moralis.Web3API.account.getNFTs();
     let NFTWithMetadata = await fetchNFTMetadata(NFTs.result);
          console.log(NFTWithMetadata);
 }
