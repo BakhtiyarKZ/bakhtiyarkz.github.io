@@ -39,7 +39,7 @@ function fetchNFTMetadata(NFTs) {
 }
 
 function renderInventory(NFTs) {
- const parent document.getElementById("nfts");
+ const parent = document.getElementById("nfts");
          for(let i=0; i<NFTs.length; i++){
             const nft = NFTs[i];
          let htmlString = `
