@@ -34,7 +34,7 @@ getNFTs = async () => {
                 let id = n.token_id;  
                 fetch(id)
                       .then(res => res.json)
-                      .then(res => JSON.parse(res.data));
+                      .then(res => JSON.parse(res.result));
                 
                 let content = `
                       <div class="card col-md-3">
