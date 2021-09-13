@@ -38,11 +38,11 @@ getNFTs = async () => {
                 
                 let content = `
                       <div class="card col-md-3">
-                     <img src="${res.json().image}" class="card-img-top" alt="...">
+                     <img src="${res.image}" class="card-img-top" alt="...">
                      
                      
                      <div class="card-body">
-                     <h5 class="card-title"> ${res.json().name} </h5>
+                     <h5 class="card-title"> ${res.name} </h5>
                      <p class="card-text">${res.description}</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
