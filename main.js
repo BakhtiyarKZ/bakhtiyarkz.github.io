@@ -21,39 +21,27 @@ logout = async () => {
 }
 
 
+function fetchNFTMetadata(NFTs){
+   let promises = [];
+   for(let i=0; i<NFTs.length; i++){
+      let nft = NFTs[i];
+      let id = nft.token_id; 
+      promises.push(fetch(nft.token_uri))
+            .then(res => res.json())
+            .then(res => JSON.parse(res.result))
+            .then(res => { nft.metadata = res} )
+            .then( () => { return nft; } )
+   
+   
+   }
+         return Promise.all(promises);
 
-getNFTs = async () => {
-         
-    const options = {address: "0xeC2F3215698FCf4e9A5a40439C700fbD1D43313E", chain: "mainnet"};     
-    let nftses = await Moralis.Web3API.account.getNFTs();
-         console.log(nftses);
-         let nfts = document.querySelector('#nfts');
-         
-         if(nftses.result.length > 0){
-             nftses.result.forEach( n => {
-                let id = n.token_uri;  
-                fetch(id, { mode: 'no-cors'})
-                      .then(res => res.json)
-                      .then(res => JSON.parse(res.result));
-                
-                let content = `
-                      <div class="card col-md-3">
-                     <img src="${res.image}" class="card-img-top" alt="...">
-                     
-                     
-                     <div class="card-body">
-                     <h5 class="card-title"> ${res.name} </h5>
-                     <p class="card-text">${res.description}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-                     `
-                    nfts.innerHTML += content;
-                      
-             }
-             
-             );
-         }
+}
+
+function getNFTs() {
+    let NFTs = await Moralis.Web3API.token.getAllTokenIds();
+    let NFTWithMetadata = await fetchNFTMetadata(NFTs.result);
+         console.log(NFTWithMetadata);
 }
 
 if(document.querySelector('#btn-nfts') != null)
