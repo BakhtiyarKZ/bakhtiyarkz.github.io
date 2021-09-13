@@ -21,7 +21,7 @@ logout = async () => {
 }
 
 
-fetchNFTMetadata = async (NFTs) => {
+function fetchNFTMetadata(NFTs) {
    let promises = [];
    for(let i=0; i<NFTs.length; i++){
       let nft = NFTs[i];
@@ -38,7 +38,7 @@ fetchNFTMetadata = async (NFTs) => {
 
 }
 
-function getNFTs() {
+async function getNFTs() {
     let NFTs = await Moralis.Web3API.token.getAllTokenIds();
     let NFTWithMetadata = await fetchNFTMetadata(NFTs.result);
          console.log(NFTWithMetadata);
