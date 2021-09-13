@@ -32,7 +32,7 @@ getNFTs = async () => {
          if(nftses.result.length > 0){
              nftses.result.forEach( n => {
                 let id = n.token_id;  
-                fetch("https://appsnabsfj7l.moralisweb3.com:2053/server/functions/getNFT?_ApplicationId=oJL7dXOx2y5Zl3CnHh1he21RCg1yUXLYmRVqMUtS&nftId=" + id)
+                fetch(id)
                       .then(res => console.log(res));
                 //let metadata = JSON.parse(n.token_uri);
                 let content = `
