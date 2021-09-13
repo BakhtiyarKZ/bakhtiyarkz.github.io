@@ -23,21 +23,26 @@ logout = async () => {
 
 
 getNFTs = async () => {
-    let nftses = await Moralis.Web3API.account.getNFTs();
+         
+    const options = {address: "0xeC2F3215698FCf4e9A5a40439C700fbD1D43313E"};     
+    let nftses = await Moralis.Web3API.account.getNFTs(options);
          console.log(nftses);
          let nfts = document.querySelector('#nfts');
          
          if(nftses.result.length > 0){
              nftses.result.forEach( n => {
-                let metadata = JSON.parse(n.token_uri);
+                let id = n.token_id;  
+                fetch("https://appsnabsfj7l.moralisweb3.com:2053/server/functions/getNFT?_ApplicationId=oJL7dXOx2y5Zl3CnHh1he21RCg1yUXLYmRVqMUtS&nftId=" + id)
+                      .then(res => console.log(res));
+                //let metadata = JSON.parse(n.token_uri);
                 let content = `
                       <div class="card col-md-3">
-                     <img src="${metadata.image}" class="card-img-top" alt="...">
+                     <img src="${res.image}" class="card-img-top" alt="...">
                      
                      
                      <div class="card-body">
-                     <h5 class="card-title"> ${metadata.name} </h5>
-                     <p class="card-text">${metadata.description}</p>
+                     <h5 class="card-title"> ${res.name} </h5>
+                     <p class="card-text">${res.description}</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
