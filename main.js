@@ -35,7 +35,7 @@ getNFTs = async () => {
                 fetch(id)
                       .then(res => res.json)
                       .then(res => JSON.parse(res.data));
-                let metadata = JSON.parse(res.data);
+                
                 let content = `
                       <div class="card col-md-3">
                      <img src="${res.json().image}" class="card-img-top" alt="...">
@@ -43,7 +43,7 @@ getNFTs = async () => {
                      
                      <div class="card-body">
                      <h5 class="card-title"> ${res.json().name} </h5>
-                     <p class="card-text">${metadata.description}</p>
+                     <p class="card-text">${res.description}</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
