@@ -44,12 +44,12 @@ function renderInventory(NFTs) {
             const nft = NFTs[i];
          let htmlString = `
                       <div class="card col-md-3">
-                     <img src="${res.image}" class="card-img-top" alt="...">
+                     <img src="${nft.metadata.image}" class="card-img-top" alt="...">
                      
                      
                      <div class="card-body">
-                     <h5 class="card-title"> ${res.name} </h5>
-                     <p class="card-text">${res.description}</p>
+                     <h5 class="card-title"> ${nft.metadata.name} </h5>
+                     <p class="card-text">${nft.metadata.description}</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
