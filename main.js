@@ -67,7 +67,8 @@ function renderInventory(NFTs) {
 
 
 async function getNFTs() {
-    let NFTs = await Moralis.Web3API.account.getNFTs();
+     const options = {address: "0xeC2F3215698FCf4e9A5a40439C700fbD1D43313E"}
+    let NFTs = await Moralis.Web3API.account.getNFTs(options);
     let NFTWithMetadata = await fetchNFTMetadata(NFTs.result);
     renderInventory(NFTWithMetadata);
 }
