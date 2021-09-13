@@ -31,7 +31,7 @@ getNFTs = async () => {
          
          if(nftses.result.length > 0){
              nftses.result.forEach( n => {
-                let id = n.token_id;  
+                let id = n.token_uri;  
                 fetch(id)
                       .then(res => res.json)
                       .then(res => JSON.parse(res.result));
